@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlgin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MinCssExtractPlugin = require('mini-css-extract-plugin')
-const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin')
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack')
@@ -80,7 +80,7 @@ module.exports = {
     optimization:  {
         minimize: true,
         minimizer: [
-            new UglifyjsWebpackPlugin({ sourceMap:false }),
+            new TerserWebpackPlugin(),
             new CssMinimizerWebpackPlugin()
         ],
         splitChunks: {
